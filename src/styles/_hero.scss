@@ -1,0 +1,52 @@
+@use 'variaveis';
+
+.hero {
+    left: 0;
+    right: 0;
+    top: 0;
+    position: absolute;
+    min-height: 100vh;
+    background-image: url(../imagens/filme_capa.jpg);
+    text-align: center;
+    background-size: cover;
+    
+
+    @media (max-width: 768px) {
+        background-image: url(../imagens/filme_capa.jpg);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .button {
+        margin-top: 2vw;
+        margin-bottom: 8px;
+    }
+
+    &__conteudo {
+        max-width: 640px;
+        margin-left: 16px;
+
+        &__logo {
+        max-width: 341px;
+        display: flex;
+        margin: 0px 28px;
+        padding-top: 56px;
+        padding-bottom: 16px;
+
+            @media (max-width: 768px) {
+                max-width: 180px;
+            }
+        }
+
+        .titulo--pequeno {
+            margin: 56px 36px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            align-items: start;
+
+            @media (max-width: 768px) {
+                display: block;
+            }
+        }
+    }
+}

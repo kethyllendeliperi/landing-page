@@ -1,0 +1,122 @@
+@use 'variaveis';
+@use 'hero';
+@use 'header';
+
+@font-face {
+    font-family: Avenir;
+    src: url(../../assets/fonts/Avenir-Regular.woff2);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Avenir;
+    src: url(../../assets/fonts/Avenir-Bold.woff2);
+    font-weight: 700;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Avenir, sans-serif;
+}
+
+body {
+    background-color: variaveis.$corDeFundo;
+}
+
+@mixin texto($fontSize: 20px) {
+    font-size: $fontSize;
+    line-height: $fontSize + 10px;
+    color: variaveis.$corTextoPrincipal;
+}
+
+@mixin titulo($fontSize: 40px) {
+    @include texto($fontSize);
+    color: variaveis.$corTextoSecundario;
+}
+
+.texto--grande {
+    @include texto(24px);
+
+    @media (max-width: 768px) {
+        @include texto(15px);
+    }
+}
+
+.texto {
+    @include texto;
+
+    @media (max-width: 768px) {
+        @include texto(14px);
+    }
+}
+
+.texto--pequeno {
+    @include texto(18px);
+
+    @media (max-width: 768px) {
+        @include texto(14px);
+    }
+}
+
+.link-texto {
+    @include texto(18px);
+    color: variaveis.$corTextoSecundario;
+    text-decoration: underline;
+}
+
+.titulo--grande {
+    @include titulo(44px);
+
+    @media (max-width: 768px) {
+        @include titulo(26px);
+    }
+}
+
+.titulo {
+    @include titulo;
+
+    @media (max-width: 768px) {
+        @include titulo(24px);
+    }
+}
+
+.titulo--pequeno {
+    @include titulo(28px);
+
+    @media (max-width: 768px) {
+        @include titulo(22px);
+    }
+}
+
+.button {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: auto;
+    height: 60px;
+    font-size: 18px;
+    color: variaveis.$corTextoSecundario;
+    text-transform: uppercase;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 8px 14px;
+    letter-spacing: 1px;
+
+    &--assista {
+       background-color: rgba(variaveis.$corDeFundoBotaoAssista, 0.8);
+       border-color: variaveis.$corTextoSecundario;
+
+       &:hover {
+        background-color: variaveis.$corTextoSecundario;
+        color: variaveis.$corDeFundo;
+       }
+    }
+}
